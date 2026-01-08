@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Strate 📚
 
-## Getting Started
+**Strate** est une application d'analyse documentaire intelligente (RAG) qui tourne **100% en local**.
+Elle vous permet de discuter avec vos fichiers PDF, d'en extraire des résumés, du code ou des explications, sans qu'aucune donnée ne quitte votre machine.
 
-First, run the development server:
+![Strate UI](https://via.placeholder.com/1200x600.png?text=Strate+Interface+Preview)
+
+## ✨ Fonctionnalités
+
+- **🔒 100% Local & Privé** : Utilise Ollama pour faire tourner les modèles d'IA sur votre ordinateur. Aucune clé API requise.
+- **⚡️ Réponses en Streaming** : L'IA répond en temps réel (effet machine à écrire).
+- **📄 Split View** : Lisez votre PDF à gauche tout en discutant avec l'IA à droite.
+- **🧠 Mémoire de Conversation** : L'IA se souvient du contexte de vos questions précédentes.
+- **🎨 UI/UX Premium** :
+  - Mode Sombre / Clair.
+  - Animations fluides (Framer Motion).
+  - Sidebar rétractable.
+  - Rendu Markdown avec coloration syntaxique pour le code.
+- **🛠 Outils Avancés** :
+  - Bouton "Copier le code".
+  - Raccourcis clavier (`⌘K`, `⌘B`, `Esc`).
+  - Indicateur de santé Ollama en temps réel.
+
+## 🛠 Stack Technique
+
+- **Framework** : [Next.js 14](https://nextjs.org/) (App Router, Server Actions).
+- **IA / LLM** : [Ollama](https://ollama.com/) (Modèles : `mistral` & `nomic-embed-text`).
+- **Orchestration** : [LangChain.js](https://js.langchain.com/).
+- **Vector Store** : En mémoire (MemoryVectorStore).
+- **Styling** : [Tailwind CSS](https://tailwindcss.com/), `sonner` (Toasts), `lucide-react` (Icônes).
+- **PDF** : `react-pdf` pour le rendu, `pdf-parse` pour l'ingestion.
+
+## 🚀 Installation
+
+### 1. Pré-requis : Ollama
+
+Ce projet nécessite **Ollama** pour fonctionner localement.
+
+1. Téléchargez et installez Ollama depuis [ollama.com](https://ollama.com).
+2. Lancez Ollama.
+3. Téléchargez les modèles nécessaires via votre terminal :
+
+```bash
+# Modèle de chat (génération de texte)
+ollama pull mistral
+
+# Modèle d'embedding (vectorisation du PDF)
+ollama pull nomic-embed-text
+```
+
+### 2. Installation du projet
+
+Clonez le dépôt et installez les dépendances :
+
+```bash
+git clone https://github.com/votre-username/strate.git
+cd strate
+npm install
+```
+
+### 3. Lancement
+
+Lancez le serveur de développement :
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ⌨️ Raccourcis Clavier
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Raccourci | Action |
+|-----------|--------|
+| `⌘` + `B` | Ouvrir / Fermer la barre latérale |
+| `⌘` + `K` | Réinitialiser la conversation (Nouveau fichier) |
+| `Esc` | Arrêter la génération en cours |
+| `?` | Afficher l'aide |
 
-## Learn More
+## 🐛 Dépannage
 
-To learn more about Next.js, take a look at the following resources:
+- **Erreur "Ollama déconnecté"** : Assurez-vous que l'application Ollama tourne en arrière-plan ou lancez `ollama serve` dans un terminal.
+- **Erreur "Fetch failed"** : Vérifiez que vous avez bien téléchargé les modèles (`mistral` et `nomic-embed-text`).
+- **Le PDF ne s'affiche pas** : Vérifiez que le fichier n'est pas corrompu. L'application supporte les PDF standards.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 Licence
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ce projet est sous licence MIT.
