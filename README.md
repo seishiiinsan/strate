@@ -3,7 +3,7 @@
 **Strate** est une application d'analyse documentaire intelligente (RAG) qui tourne **100% en local**.
 Elle vous permet de discuter avec vos fichiers PDF, d'en extraire des résumés, du code ou des explications, sans qu'aucune donnée ne quitte votre machine.
 
-![Strate UI](https://via.placeholder.com/1200x600.png?text=Strate+Interface+Preview)
+![Strate UI](public/strate.png)
 
 ## ✨ Fonctionnalités
 
